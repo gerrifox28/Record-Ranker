@@ -1,0 +1,171 @@
+.App {
+  text-align: center;
+  background-color: #191414;
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  min-width: fit-content;
+}
+
+
+.App-logo {
+  /* height: 40vmin; */
+  /* pointer-events: none; */
+  color: #ffffff;
+  font-weight: 700;
+  padding: 20px;
+}
+
+.linkedin {
+  color: #969ba0 !important;
+  text-decoration:none !important;
+  cursor: pointer !important;
+}
+
+.head {
+  font-size: 13vh;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  pointer-events: none;
+}
+
+.head2 {
+  font-size: 5vh;
+  font-weight: 300;
+  color: #b393d3;
+  background-clip: text;
+  -webkit-background-clip: text;
+  width: 60%;
+  /* overflow-wrap: break-word; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  pointer-events: none;
+}
+
+.head3 {
+  font-size: 5vh;
+  font-weight: 300;
+  color: #b393d3;
+  background-clip: text;
+  -webkit-background-clip: text;
+  overflow-wrap: break-word;
+  padding: 5px;
+}
+
+.form-control {
+  margin: 5px !important;
+  min-width: 30% !important;
+}
+
+.btn {
+  background-color: #553c9a !important;
+  border-color: #553c9a !important;
+  color: white !important;
+  margin: 5px !important;
+}
+
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+
+.card {
+  background-color: #191414 !important;
+  border-color: #191414 !important; 
+  padding: 10px;
+  /* min-width: fit-content !important; */
+}
+
+.card-title {
+  color: white !important;
+  /* min-width: fit-content !important; */
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/* Child Text Container */
+.rank {
+  /* position: absolute impr !important; */
+  /* bottom: 0 !important; */
+  /* right: 0 !important; */
+  /* width: 50px !important;
+  height: auto !important; */
+  /* position: relative !important; */
+  /* height: 204px !important;
+  width: 204px !important;
+  translate: 0% -100% !important; */
+
+  /* position: fixed !important; */
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  /* height: 100% !important;
+  width: 100% !important;
+  align-items: stretch !important; */
+  background: black !important;
+  color: white !important;
+  /* margin-bottom: 0 auto !important; */
+  /* font-family: sans-serif !important; */
+  font: small-caps !important;
+  display: inline-block !important;
+  width: 100% !important;
+  /* font-size: 800% !important; */
+  opacity: 0.7 !important;
+  visibility: visible !important;
+  margin: auto !important;
+  /* -webkit-transition: visibility 0s, opacity 0.5s linear !important;  */
+  /* transition: visibility 0s, opacity 0.5s linear !important; */
+}
+
+.rank-text {
+  font-size: 600% !important;
+  position: absolute !important;
+  top: 50% !important;
+  translate: 0, -50% !important;
+}
+
+.content-img {
+  opacity: 0.7 !important;
+  display: flex !important;
+  position: relative !important;
+}
+
+/* Hover on Parent Container */
+.content-img:hover {
+  cursor: pointer !important;
+  opacity: 1 !important; 
+}
+
+.content-img:hover div {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.coffee {
+  position: absolute !important;
+  bottom: 10px !important;
+  width: 100% !important;
+
+}
+
