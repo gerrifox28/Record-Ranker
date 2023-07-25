@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/record-ranker/static/css/main.93d68d13.css",
+    "main.js": "/record-ranker/static/js/main.c9c04bdd.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/record-ranker/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/color-record.png": "/record-ranker/static/media/color-record.b10f5ccd868aacc78f78.png",
+    "index.html": "/record-ranker/index.html",
+    "main.93d68d13.css.map": "/record-ranker/static/css/main.93d68d13.css.map",
+    "main.c9c04bdd.js.map": "/record-ranker/static/js/main.c9c04bdd.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/record-ranker/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93d68d13.css",
+    "static/js/main.c9c04bdd.js"
+  ]
+}
