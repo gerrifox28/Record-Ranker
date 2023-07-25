@@ -6,7 +6,6 @@ import { useState } from 'react';
 function Search(props) {
 
     const [ searchInput, setSearchInput ] = useState("Search For Artist");
-    const [ errorMode, setErrorMode ] = useState(false);
     const [ songPreview, setSongPreview ] = useState("Play Preview");
     const [ audio, setAudio ] = useState("");
     const [ previewTrackName, setPreviewTrackName ] = useState("");
@@ -38,7 +37,7 @@ function Search(props) {
         .then(data => {
             console.log(data)
             if (data.items.length === 0) {
-                setErrorMode(true);
+                props.setErrorMode(true);
             } else {
             props.setRecords(data.items);
             props.setSubtitle("Customize your records to rank before starting the battles. Select an album to rank its tracks, or search again if this artist isn't who you're looking for.")
@@ -46,7 +45,7 @@ function Search(props) {
         })
     } catch (error) {
         console.log("error with searching for artist");
-        setErrorMode(true);
+        props.setErrorMode(true);
     }
     }
     
@@ -88,13 +87,13 @@ function Search(props) {
         })
         } catch (error) {
             console.log("error with retrieving tracks");
-            setErrorMode(true);
+            props.setErrorMode(true);
         }
     }
 
     function startOver() {
         setSearchInput(false);
-        setErrorMode(false);
+        props.setErrorMode(false);
         props.setSubtitle("Search for an artist on Spotify to start a series of battles to determine your ranking of their records.");
     }
 
@@ -126,8 +125,8 @@ function Search(props) {
   return (
 
     <div className="Search" style={{"padding": "50px"}}>
-        {errorMode ? <div>
-            Error searching, please reload the page and try again.
+        {props.errorMode ? <div>
+            Error searching, please reload the page and try again. Make sure your search input is correct.
             <Button onClick={startOver}>
                 Start Over
                 </Button>

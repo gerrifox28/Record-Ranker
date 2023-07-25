@@ -17,6 +17,7 @@ function App() {
   const [ results, setResults ] = useState(false);
   const [ trackUrl, setTrackUrl ] = useState("");
   const [ subtitle, setSubtitle ] = useState("Search for an artist on Spotify to start a series of battles to determine your ranking of their records.");
+  const [ errorMode, setErrorMode ] = useState(false);
 
   useEffect(() => {
     // API Access Token
@@ -28,9 +29,16 @@ function App() {
       body: 'grant_type=client_credentials&client_id=' + process.env.REACT_APP_CLIENT_ID + '&client_secret=' + process.env.REACT_APP_CLIENT_SECRET
     }
 
-    fetch('https://accounts.spotify.com/api/token', authParameters)
+    try {
+      fetch('https://accounts.spotify.com/api/token', authParameters)
       .then(result => result.json())
       .then(data => setAccessToken(data.access_token))
+    } catch (error) {
+      console.log("error with getting access token");
+      setErrorMode(true);
+    }
+
+    
   }, [])
 
   var rankDescription = results ? "Share your results!" : "Of the following two records, select which one you prefer.";
@@ -52,7 +60,7 @@ function App() {
       </div>
      
       {!rankingMode ? 
-      <Search accessToken={accessToken} records={records} setRecords={setRecords} setRankingMode={setRankingMode} trackMode={trackMode} setTrackMode={setTrackMode} tracks={tracks} setTracks={setTracks} setTrackUrl={setTrackUrl} trackUrl={trackUrl} setSubtitle={setSubtitle}/>
+      <Search accessToken={accessToken} records={records} setRecords={setRecords} setRankingMode={setRankingMode} trackMode={trackMode} setTrackMode={setTrackMode} tracks={tracks} setTracks={setTracks} setTrackUrl={setTrackUrl} trackUrl={trackUrl} setSubtitle={setSubtitle} errorMode={errorMode} setErrorMode={setErrorMode}/>
       : 
       <Ranker records={records} setRankingMode={setRankingMode} setRecords={setRecords} trackMode={trackMode} setTrackMode={setTrackMode} tracks={tracks} setTracks={setTracks} setResults={setResults} setTrackUrl={setTrackUrl} trackUrl={trackUrl} setSubtitle={setSubtitle}/> 
     }

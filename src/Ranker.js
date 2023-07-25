@@ -23,11 +23,24 @@ function Ranker(props) {
     const [ previewTrackName, setPreviewTrackName ] = useState("");
 
     useEffect(() => {
-        // var newRecords = props.trackMode ? props.tracks.map(record => record.name) : props.records.map(record => record.name)
         var newRecords = props.trackMode ? props.tracks : props.records;
         var scores = {}
         newRecords.forEach(record => scores[record.name] = 0)
         setScores(scores);
+
+        if (newRecords.length < 1) {
+          alert("No records to rank. Please reload the page.");
+        }
+
+        else if (newRecords.length === 1) {
+          console.log(scores);
+          scores[newRecords[0].name] = 1
+          setScores(scores);
+          console.log("battles over");
+          finalResults([newRecords[0].name]);
+        } 
+
+        else {
 
         var battles = []
         for(let i = 0 ; i < newRecords.length; i++){
@@ -37,6 +50,7 @@ function Ranker(props) {
             }
           }
         }
+
         const shuffledBattles = battles.sort(() => Math.random() - 0.5);
         setBattles(shuffledBattles);
         setRecord1(shuffledBattles[0][0].name);
@@ -50,7 +64,8 @@ function Ranker(props) {
         }
         setProgress(0);
         props.setSubtitle("Of the following two records, select which one you prefer.");
-    }, [])
+      }
+      }, [])
 
     function makeBattles(newRecords) {
         setProgress(0)
@@ -155,6 +170,7 @@ function Ranker(props) {
       function finalResults(scores) {
         var finals = []
         console.log('scores in final results: ' + scores);
+        console.log(scores)
         scores.forEach(recordName => {
             var records = props.trackMode ? props.tracks : props.records;
           records.filter(function findRecord(recordInList) {
