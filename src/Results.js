@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useRef } from 'react';
 import { Container, Row, Card, Button } from 'react-bootstrap';
-import { toJpeg } from "html-to-image";
+import { toPng } from "html-to-image";
 
 function Results(props) {
 
@@ -12,10 +12,10 @@ function Results(props) {
     const elementRefVisual = useRef(null);
 
     const htmlToImageConvert = (elementRef) => {
-        toJpeg(elementRef.current, { cacheBust: false })
+        toPng(elementRef.current, { cacheBust: false })
           .then((dataUrl) => {
             const link = document.createElement("a");
-            link.download = "my-image-name.jpeg";
+            link.download = "ranked-results.png";
             link.href = dataUrl;
             link.click();
           })
@@ -36,8 +36,9 @@ function Results(props) {
         let records = props.trackMode ? props.tracks : props.records;
         return (
             <div>
+            <div ref={elementRefSimple}>
             <table  style={{"width":"200px", "font-size":"18px", "line-height":"120%", "margin-left":"auto", "margin-right":"auto", "border":"1px solid #b393d3", "border-collapse":"collapse", "margin-bottom":"20px"}} align="center">
-                <tbody ref={elementRefSimple}>
+                <tbody >
                     <tr>
                         <td style={{"color":"#ffffff", "background-color":"#b393d3", "text-align":"center"}}>Rank</td>
                         <td style={{"color":"#ffffff", "background-color":"#b393d3", "text-align":"center"}}>Song</td>
@@ -55,17 +56,18 @@ function Results(props) {
                     }
                 </tbody>
             </table>
+            </div>
             <Button onClick={() => htmlToImageConvert(elementRefSimple)}>Download Ranking</Button>
             </div>
         )
       }
     return (
         <div className="Results" style={{"padding": "50px"}}>
-            <Container ref={elementRefVisual}>
+            <Container>
                 {noImageResults ? renderNoImageResults() : 
                 <div>
             {props.trackMode ? 
-                <Row className="mx-2 row row-cols-6 justify-content-center" >
+                <Row ref={elementRefVisual} className="mx-2 row row-cols-6 justify-content-center" >
                 {props.tracks.map( (track, i) => {
                 return (
                 <Card>
@@ -80,7 +82,7 @@ function Results(props) {
                 })}
             </Row>
                 :
-            <Row className="mx-2 row justify-content-center" >
+            <Row ref={elementRefVisual} className="mx-2 row justify-content-center" >
                 {props.records.map( (record, i) => {
                 return (
                     <div className="col-sm-6 col-lg-3" style={{"display": "flex"}}>
