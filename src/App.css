@@ -30,6 +30,8 @@
   background-clip: text;
   -webkit-background-clip: text;
   pointer-events: none;
+  line-height: 1;
+  margin-bottom: 5vh;
 }
 
 .head2 {

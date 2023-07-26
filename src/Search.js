@@ -28,8 +28,11 @@ function Search(props) {
         var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
         .then(response => response.json())
         .then(data =>  { 
+            console.log(data);
             return data.artists.items[0].id 
         })
+
+        console.log(artistID)
         
         // Get request with Artist ID grab all albums from that artist
         var returnedRecords = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
@@ -38,6 +41,7 @@ function Search(props) {
             console.log(data)
             if (data.items.length === 0) {
                 props.setErrorMode(true);
+                props.setErrorMessage("Sorry, " + searchInput + " has no albums on Spotify. Search again for a different artist.");
             } else {
             props.setRecords(data.items);
             props.setSubtitle("Customize your records to rank before starting the battles. Select an album to rank its tracks, or search again if this artist isn't who you're looking for.")
@@ -46,6 +50,7 @@ function Search(props) {
     } catch (error) {
         console.log("error with searching for artist");
         props.setErrorMode(true);
+        props.setErrorMessage("Error searching, please reload the page and try again. Make sure your search input is correct.");
     }
     }
     
@@ -88,12 +93,15 @@ function Search(props) {
         } catch (error) {
             console.log("error with retrieving tracks");
             props.setErrorMode(true);
+            props.setErrorMessage("Error retrieving tracks. Please reload and search again.");
+
         }
     }
 
     function startOver() {
         setSearchInput(false);
         props.setErrorMode(false);
+        props.setErrorMessage("Error searching, please reload the page and try again. Make sure your search input is correct.");
         props.setSubtitle("Search for an artist on Spotify to start a series of battles to determine your ranking of their records.");
     }
 
@@ -126,7 +134,7 @@ function Search(props) {
 
     <div className="Search" style={{"padding": "50px"}}>
         {props.errorMode ? <div>
-            Error searching, please reload the page and try again. Make sure your search input is correct.
+            {props.errorMessage}
             <Button onClick={startOver}>
                 Start Over
                 </Button>

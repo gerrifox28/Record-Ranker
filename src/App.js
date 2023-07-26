@@ -18,6 +18,7 @@ function App() {
   const [ trackUrl, setTrackUrl ] = useState("");
   const [ subtitle, setSubtitle ] = useState("Search for an artist on Spotify to start a series of battles to determine your ranking of their records.");
   const [ errorMode, setErrorMode ] = useState(false);
+  const [ errorMessage, setErrorMessage ] = useState("Error searching, please reload the page and try again. Make sure your search input is correct.");
 
   useEffect(() => {
     // API Access Token
@@ -36,6 +37,7 @@ function App() {
     } catch (error) {
       console.log("error with getting access token");
       setErrorMode(true);
+      setErrorMessage("Error searching, please reload the page and try again.");
     }
 
     
@@ -60,11 +62,11 @@ function App() {
       </div>
      
       {!rankingMode ? 
-      <Search accessToken={accessToken} records={records} setRecords={setRecords} setRankingMode={setRankingMode} trackMode={trackMode} setTrackMode={setTrackMode} tracks={tracks} setTracks={setTracks} setTrackUrl={setTrackUrl} trackUrl={trackUrl} setSubtitle={setSubtitle} errorMode={errorMode} setErrorMode={setErrorMode}/>
+      <Search accessToken={accessToken} records={records} setRecords={setRecords} setRankingMode={setRankingMode} trackMode={trackMode} setTrackMode={setTrackMode} tracks={tracks} setTracks={setTracks} setTrackUrl={setTrackUrl} trackUrl={trackUrl} setSubtitle={setSubtitle} errorMode={errorMode} setErrorMode={setErrorMode} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
       : 
       <Ranker records={records} setRankingMode={setRankingMode} setRecords={setRecords} trackMode={trackMode} setTrackMode={setTrackMode} tracks={tracks} setTracks={setTracks} setResults={setResults} setTrackUrl={setTrackUrl} trackUrl={trackUrl} setSubtitle={setSubtitle}/> 
     }
-    <div className="coffee">{"Buy me a coffee and leave some feedback :)"}</div>
+    <div className="coffee"><a className="linkedin" href="https://bmc.link/gerrif" target="_blank">{"Buy me a coffee and leave some feedback :)"}</a></div>
 
     </div>
   );
