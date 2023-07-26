@@ -7,20 +7,24 @@ import { toPng } from "html-to-image";
 function Results(props) {
 
     const [ noImageResults, setNoImageResults ] = useState(false);
+    const [ removeOpacity, setRemoveOpacity ] = useState(false);
 
     const elementRefSimple = useRef(null);
     const elementRefVisual = useRef(null);
 
     const htmlToImageConvert = (elementRef) => {
+        setRemoveOpacity(true);
         toPng(elementRef.current, { cacheBust: false })
           .then((dataUrl) => {
             const link = document.createElement("a");
             link.download = "ranked-results.png";
             link.href = dataUrl;
             link.click();
+            setRemoveOpacity(false);
           })
           .catch((err) => {
             console.log(err);
+            setRemoveOpacity(false);
           });
       };
 
@@ -67,18 +71,27 @@ function Results(props) {
                 {noImageResults ? renderNoImageResults() : 
                 <div>
             {props.trackMode ? 
-                <Row ref={elementRefVisual} className="mx-2 row row-cols-6 justify-content-center" >
+                <Row ref={elementRefVisual} className="mx-2 row justify-content-center" >
                 {props.tracks.map( (track, i) => {
                 return (
+                    <div className="col-sm-6 col-lg-3" style={{"display": "flex"}}>
                 <Card>
+                    {removeOpacity ? 
+                    <div className="content-img">
+                        <Card.Img src={props.trackUrl} />
+                        <div className="rank-2"><div className="rank-text-2">{i+1}</div></div>
+                    </div>
+                    :
                     <div className="content-img">
                         <Card.Img src={props.trackUrl} />
                         <div className="rank"><div className="rank-text">{i+1}</div></div>
                     </div>
+                }
                     <Card.Body>
                     <Card.Title style={{"padding-bottom": "20px"}}>{track.name}</Card.Title>
                     </Card.Body>
-                </Card>)
+                </Card>
+                </div>)
                 })}
             </Row>
                 :
