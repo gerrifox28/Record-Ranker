@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Record-Ranker/static/css/main.09293977.css",
-    "main.js": "/Record-Ranker/static/js/main.e7e1a8d8.js",
+    "main.js": "/Record-Ranker/static/js/main.2335eba0.js",
     "static/js/787.c4e7f8f9.chunk.js": "/Record-Ranker/static/js/787.c4e7f8f9.chunk.js",
     "static/media/color-record.png": "/Record-Ranker/static/media/color-record.b10f5ccd868aacc78f78.png",
     "index.html": "/Record-Ranker/index.html",
     "main.09293977.css.map": "/Record-Ranker/static/css/main.09293977.css.map",
-    "main.e7e1a8d8.js.map": "/Record-Ranker/static/js/main.e7e1a8d8.js.map",
+    "main.2335eba0.js.map": "/Record-Ranker/static/js/main.2335eba0.js.map",
     "787.c4e7f8f9.chunk.js.map": "/Record-Ranker/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.09293977.css",
-    "static/js/main.e7e1a8d8.js"
+    "static/js/main.2335eba0.js"
   ]
 }
