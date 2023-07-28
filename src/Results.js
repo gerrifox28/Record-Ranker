@@ -67,7 +67,7 @@ function Results(props) {
         )
       }
     return (
-        <div className="Results" style={{"padding": "50px"}}>
+        <div className="Results" style={{"padding-bottom": "50px"}}>
             <Container>
                 {noImageResults ? renderNoImageResults() : 
                 <div>
