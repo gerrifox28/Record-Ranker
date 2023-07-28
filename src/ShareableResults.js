@@ -26,13 +26,11 @@ export default function ShareableResults(props) {
           });
       };
 
-      console.log(props)
-
 
   return (
     <div>
     <div ref={elementRef}> 
-    <div  class="row2" style={{"display":"flex", "flex-direction":"row", "justify-content":"center", "padding-bottom":"5vh"}}>
+    <div  class="row2" style={{ "padding-bottom":"5vh", "display":"flex", "justify-content":"center", "flex-wrap":"wrap"}}> {/* "display":"flex", "flex-direction":"row", "justify-content":"center",*/}
         {props.records.map((record, i) => {
             return (
             <div className="column-2" style={{"display":"flex", "flex-direction":"column", "max-width":"33.33%"}}>

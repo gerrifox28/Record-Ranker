@@ -185,7 +185,7 @@ function Ranker(props) {
         props.trackMode ? props.setTracks(finals) : props.setRecords(finals);
         setRankingOver(true);
         props.setResults(true);
-        props.setSubtitle("Share your results! Screenshotting and sharing on social media is encouraged #RecordRanker");
+        props.setSubtitle("Save and share your results!\nShare to social media!\n#RecordRanker");
       }    
 
       function playPreview(event, previewUrl, trackName) {

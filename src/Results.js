@@ -1,17 +1,34 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Container, Row, Card, Button } from 'react-bootstrap';
 import { toPng } from "html-to-image";
 import ShareableResults from './ShareableResults';
+import { TwitterShareButton, TwitterIcon } from 'react-share';
+import { format } from 'react-string-format';
 
 function Results(props) {
 
     const [ noImageResults, setNoImageResults ] = useState(false);
     const [ removeOpacity, setRemoveOpacity ] = useState(false);
+    const [ stringResults, setStringResults ] = useState("");
 
     const elementRefSimple = useRef(null);
     const elementRefVisual = useRef(null);
+
+    useEffect(()=>{
+        let records = props.trackMode ? props.tracks : props.records;
+        let stringResults = "Check out my ranking!\n";
+            
+        records.map((record, i) => {
+                
+                    stringResults += (i+1) + ". " + record.name + "\n";
+                    
+                })
+        stringResults += "\nCreate your ranking at ";
+        setStringResults(stringResults);
+    },[])
+    
 
     const htmlToImageConvert = (elementRef) => {
         setRemoveOpacity(true);
@@ -39,6 +56,7 @@ function Results(props) {
 
       function renderNoImageResults() {
         let records = props.trackMode ? props.tracks : props.records;
+
         return (
             <div>
             <div ref={elementRefSimple}>
@@ -120,6 +138,16 @@ function Results(props) {
             </Container>
             <Button onClick={()=> setNoImageResults(!noImageResults)}>{noImageResults ? "Visual Results" : "Simple Results"}</Button>
             <Button onClick={startOver}>Start Over</Button>
+            <div>
+            <TwitterShareButton
+                url={'https://gerrifox28.github.io/Record-Ranker/'}
+                title= {stringResults}
+                hashtags={["RecordRanker"]}
+                // via="test2"
+                >
+                <TwitterIcon size={32} round iconFillColor='#553c9a'/>
+            </TwitterShareButton>
+            </div>
         </div>
     );
 }
