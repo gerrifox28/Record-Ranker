@@ -6,6 +6,7 @@ import { Container } from 'react-bootstrap';
 import Search from './Search';
 import Ranker from './Ranker';
 import record from './color-record.png';
+import ShareableResults from './ShareableResults';
 
 function App() {
 
@@ -67,7 +68,7 @@ function App() {
       <Ranker records={records} setRankingMode={setRankingMode} setRecords={setRecords} trackMode={trackMode} setTrackMode={setTrackMode} tracks={tracks} setTracks={setTracks} setResults={setResults} setTrackUrl={setTrackUrl} trackUrl={trackUrl} setSubtitle={setSubtitle}/> 
     }
     <div className="coffee"><a className="linkedin" href="https://bmc.link/gerrif" target="_blank">{"Buy me a coffee and leave some feedback :)"}</a></div>
-
+    {/* <ShareableResults /> */}
     </div>
   );
 }

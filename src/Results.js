@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useRef } from 'react';
 import { Container, Row, Card, Button } from 'react-bootstrap';
 import { toPng } from "html-to-image";
+import ShareableResults from './ShareableResults';
 
 function Results(props) {
 
@@ -70,7 +71,8 @@ function Results(props) {
             <Container>
                 {noImageResults ? renderNoImageResults() : 
                 <div>
-            {props.trackMode ? 
+                    {props.trackMode ? <ShareableResults records={props.tracks} trackMode={props.trackMode} trackUrl={props.trackUrl}/> : <ShareableResults records={props.records} trackMode={props.trackMode} trackUrl={props.trackUrl}/> }
+            {/* {props.trackMode ? 
                 <Row ref={elementRefVisual} className="mx-2 row justify-content-center" >
                 {props.tracks.map( (track, i) => {
                 return (
@@ -110,8 +112,8 @@ function Results(props) {
                 </Card>
                 </div>)
                 })}
-            </Row>}
-            <Button onClick={() => htmlToImageConvert(elementRefVisual)}>Download Ranking</Button>
+            </Row>} */}
+            {/* <Button onClick={() => htmlToImageConvert(elementRefVisual)}>Download Ranking</Button> */}
 
             </div>}
             {/* <Button onClick={() => htmlToImageConvert(elementRefVisual)}>Download Ranking</Button> */}
