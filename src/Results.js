@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Container, Row, Card, Button } from 'react-bootstrap';
 import { toPng } from "html-to-image";
 import ShareableResults from './ShareableResults';
-import { TwitterShareButton, TwitterIcon } from 'react-share';
+import { TwitterShareButton, TwitterIcon, FacebookShareButton, FacebookIcon, TumblrShareButton, TumblrIcon } from 'react-share';
 import { format } from 'react-string-format';
 
 function Results(props) {
@@ -138,7 +138,7 @@ function Results(props) {
             </Container>
             <Button onClick={()=> setNoImageResults(!noImageResults)}>{noImageResults ? "Visual Results" : "Simple Results"}</Button>
             <Button onClick={startOver}>Start Over</Button>
-            <div>
+            <div style={{"margin":"5px"}}>
             <TwitterShareButton
                 url={'https://gerrifox28.github.io/Record-Ranker/'}
                 title= {stringResults}
@@ -147,6 +147,20 @@ function Results(props) {
                 >
                 <TwitterIcon size={32} round iconFillColor='#553c9a'/>
             </TwitterShareButton>
+            <TumblrShareButton
+                url={'https://gerrifox28.github.io/Record-Ranker/'}
+                title= {stringResults}
+                tags={["RecordRanker"]}
+                >
+                <TumblrIcon size={32} round iconFillColor='#b393d3'/>
+            </TumblrShareButton>
+            <FacebookShareButton
+                url={'https://gerrifox28.github.io/Record-Ranker/'}
+                quote= {stringResults}
+                hashtag={"RecordRanker"}
+                >
+                <FacebookIcon size={32} round iconFillColor='#b393d3'/>
+            </FacebookShareButton>
             </div>
         </div>
     );
