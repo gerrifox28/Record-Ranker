@@ -36,12 +36,12 @@ export default function ShareableResults(props) {
             return (
             <div className="column-2" style={{"display":"flex", "flex-direction":"column"}}>
                 <div style={{"padding-bottom":"5px", "font-family": "Verdana", "flex": "1 1 auto", "font-size":"3vw" }}>{record.name}</div>
-                <div className="shareResImg" style={{"position":"relative"}}>
-                <div className="rank-text-container" style={{"font-size": "100%", "position": "absolute", "top":"50%", "left":"50%", "transform": "translate(-50%,-50%)", "width":"100%", "height":"100%", "background-color": "rgba(0,0,0,.5)"}}>
+                {/* <div className="shareResImg" style={{"position":"relative"}}> */}
+                {/* <div className="rank-text-container" style={{"font-size": "100%", "position": "absolute", "top":"50%", "left":"50%", "transform": "translate(-50%,-50%)", "width":"100%", "height":"100%", "background-color": "rgba(0,0,0,.5)"}}> */}
                     <div className="rank-text-3">{i+1}</div>
-                </div>
+                {/* </div> */}
                 <img src={props.trackMode ? props.trackUrl : record.images[0].url} alt={record.name} style={{"width":"100%"}}/>
-                </div>
+                {/* </div> */}
             </div>);
         })}
     </div>
