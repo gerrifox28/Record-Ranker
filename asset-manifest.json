@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Record-Ranker/static/css/main.92cf23b8.css",
-    "main.js": "/Record-Ranker/static/js/main.d5b1d6be.js",
+    "main.css": "/Record-Ranker/static/css/main.1db21df7.css",
+    "main.js": "/Record-Ranker/static/js/main.57c45f15.js",
     "static/js/787.c4e7f8f9.chunk.js": "/Record-Ranker/static/js/787.c4e7f8f9.chunk.js",
     "static/media/color-record.png": "/Record-Ranker/static/media/color-record.b10f5ccd868aacc78f78.png",
     "index.html": "/Record-Ranker/index.html",
-    "main.92cf23b8.css.map": "/Record-Ranker/static/css/main.92cf23b8.css.map",
-    "main.d5b1d6be.js.map": "/Record-Ranker/static/js/main.d5b1d6be.js.map",
+    "main.1db21df7.css.map": "/Record-Ranker/static/css/main.1db21df7.css.map",
+    "main.57c45f15.js.map": "/Record-Ranker/static/js/main.57c45f15.js.map",
     "787.c4e7f8f9.chunk.js.map": "/Record-Ranker/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.92cf23b8.css",
-    "static/js/main.d5b1d6be.js"
+    "static/css/main.1db21df7.css",
+    "static/js/main.57c45f15.js"
   ]
 }
